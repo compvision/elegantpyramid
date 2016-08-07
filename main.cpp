@@ -18,12 +18,18 @@ void pyramid(string* out, int levels) {
 	*out = output;	
 }
 
-int main() {
+int main(int argc, char* argv[]) {
 	string init = "";
 	string* empty = &init;
-	cout << "How many levels should the pyramid be?\n-->";
 	int y;
-	cin >> y;
+	if (argc !=2) {
+		cout << "How many levels should the pyramid be?\n--> ";
+		cin >> y;
+	}
+	else {
+		int val = atoi(argv[1]);
+		y = val;
+	}
 	pyramid(empty, y);
 	cout << *empty;
 }
